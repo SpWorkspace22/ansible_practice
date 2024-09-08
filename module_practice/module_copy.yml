@@ -1,0 +1,22 @@
+- name: Playbook demo for Copy module
+  hosts: dev_servers
+  become: true
+  tasks:
+   - name: Copy using inline content
+     ansible.builtin.copy:
+      content: "Copy Successful\n"
+      dest: File2.txt
+      
+   - name: Copy File From local to Host
+     ansible.builtin.copy:
+      src: ./script.sh
+      dest: ./script.sh
+      
+   - name: Change Content of nginx file
+     become: true
+     ansible.builtin.copy:
+      content: "This is test of copy module"
+      dest: /var/www/html/index.nginx-debian.html  
+   
+
+     

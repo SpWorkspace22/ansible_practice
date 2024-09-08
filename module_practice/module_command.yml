@@ -10,5 +10,6 @@
       cmd: cat File.txt
       
    - name: List Of Command
-     ansible.builtin.command: touch File2.txt
+     ansible.builtin.command: 
+      cmd: touch File2.txt
      

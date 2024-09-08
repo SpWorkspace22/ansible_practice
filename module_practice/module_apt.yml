@@ -20,7 +20,7 @@
      ansible.builtin.apt:
       name: nginx
       state: present
-      update_cache: yes
+      update_cache: no
      tags: nginx
      
    - name: Install OpenJdk ignoring recommndate
