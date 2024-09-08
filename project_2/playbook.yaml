@@ -1,0 +1,30 @@
+- name: install nginx
+  hosts: localhost
+  tags: nginx
+  diff: true
+  become: true
+  tasks:
+  - name: dump some facts
+    ansible.builtin.debug:
+      var: ansible_distribution
+      
+  - name: insall nginx
+    when: ansible_distribution == "Ubuntu"
+    ansible.builtin.ping:
+#      update_cache: true
+#      name: nginx
+  
+- name: copy module test
+  hosts: localhost
+  tags: copy
+  tasks:
+  - copy: 
+      dest: hello.txt 
+      content: world2
+#  - command: date
+   
+- name: controller requirements
+  tags: pip
+  hosts: localhost
+  tasks:
+  - pip: name=ansible-lint

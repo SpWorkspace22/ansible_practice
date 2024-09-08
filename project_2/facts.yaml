@@ -1,0 +1,10 @@
+- name: gather facts
+  hosts: localhost
+#  gather_facts: false
+  gather_subset:
+   - '!min' 
+   - processor
+  tags: facts
+  tasks:
+   - ansible.builtin.debug:
+      var: ansible_facts

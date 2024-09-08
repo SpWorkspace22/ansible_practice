@@ -1,0 +1,11 @@
+- name : "Execute Copy Commands"
+  hosts: server_01
+  tasks:
+   - name : "Normal Copy Operations "
+     ansible.builtin.copy:
+      content: "This is my text"
+      dest: hello.txt
+   - name : "Copy Src To Des "
+     ansible.builtin.command:
+      cmd : cp hello.txt test1/
+       

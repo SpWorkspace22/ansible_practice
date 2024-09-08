@@ -1,0 +1,12 @@
+- name : "Execute Simple Commands Using Loops"
+  hosts: server_01
+  vars:
+   commands: 
+    - ls
+    - pwd
+    - date
+  tasks:
+   - name : 'Execute "{{ commands }}" Command'
+     ansible.builtin.command:
+      cmd : "{{ item }}"
+     loop : "{{ commands }}"

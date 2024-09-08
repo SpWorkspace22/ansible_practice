@@ -1,0 +1,92 @@
+- name: Ping Test
+  hosts: dev_servers
+  tags: Test
+  tasks:
+   - name: Ping host machine
+     ansible.builtin.ping:
+     
+- name: Install Packages Using Apt
+  hosts: dev_servers
+  tags: Apt
+  become: true
+  tasks:
+   - name: Install Apcahe https Server
+     ansible.builtin.apt:
+      name: apache2
+      state: present
+     tags: Apache
+   
+   - name: Install nginx with update cache
+     ansible.builtin.apt:
+      name: nginx
+      state: present
+      update_cache: yes
+     tags: nginx
+     
+   - name: Install OpenJdk ignoring recommndate
+     ansible.builtin.apt:
+      name: openjdk-21-jdk
+      state: latest
+      install_recommends: no
+      update_cache: yes
+     tags: jdk
+      
+   - name: Install list of packages
+     ansible.builtin.apt:
+      pkg:
+       - apache2
+       - nginx
+       - openjdk-21-jdk
+      update_cache: yes
+     tags: pkg_list 
+     
+- name: Uninstall Packages Using Apt
+  hosts: dev_servers
+  tags: Apt_Remove
+  become: true
+  tasks:
+   - name: Remove Apache Httpd Packages
+     ansible.builtin.apt:
+      name: apache2
+      state: absent
+      purge: yes
+        
+   - name: Remove nginx Packages
+     ansible.builtin.apt:
+      name: nginx
+      state: absent
+      purge: yes
+        
+   - name: Remove Openjdk Packages
+     ansible.builtin.apt:
+      name: openjdk-21-jdk
+      state: absent
+      purge: yes
+      
+   - name: Remove list of packages
+     ansible.builtin.apt:
+      pkg:
+       - apache2
+       - nginx
+       - openjdk-21-jdk
+      state: absent
+      purge: true
+     tags: rem_list
+      
+- name: Clean all unused dependencies
+  hosts: dev_servers
+  tags: clean
+  become: true
+  tasks:
+   - name: Remove dependencies that are no longer required and purge their configuration files
+     ansible.builtin.apt:
+      autoremove: yes
+      purge: true
+   - name: Clean repo cache
+     ansible.builtin.apt:
+      autoclean: true
+        
+        
+  
+     
+      

@@ -1,0 +1,13 @@
+- name: setup webserver
+  hosts: webservers
+  become: true
+  tasks:
+   - name: install nginx packages
+     ansible.builtin.apt:
+      name: nginx
+      
+   - name: copy index file
+     ansible.builtin.copy: 
+      src: my_app.html
+      dest: /var/www/html/index.html 
+      

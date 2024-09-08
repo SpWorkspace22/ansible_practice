@@ -1,0 +1,27 @@
+webservers:
+ hosts:
+  web_server_01:
+   ansible_host: 192.168.1.16
+ #vars:
+  #ansible_user: vagrant
+   
+dbservers:
+ hosts:
+  db_server_01:
+   ansible_host: 192.168.1.17
+ #vars:
+  #ansible_user: vagrant
+  
+# Parent/Child Relationship
+us_east:
+ children:
+  webservers:
+ vars:
+  ansible_user: vagrant
+  
+# Parent/Child Relationship
+us_west:
+ children:
+  dbservers:
+ vars:
+  ansible_user: vagrant

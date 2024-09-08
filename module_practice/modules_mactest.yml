@@ -1,0 +1,6 @@
+- name: Test
+  hosts: dev_servers
+  tags: Test
+  tasks:
+   - name: Ping host machine
+     ansible.builtin.ping:

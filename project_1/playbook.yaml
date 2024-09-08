@@ -1,0 +1,21 @@
+- name: My First Play
+  hosts: us_west
+  tasks:
+   - name: Ping My Host
+     ansible.builtin.ping:
+     
+   - name: Print Message 
+     ansible.builtin.debug:
+      msg: Hello West
+      
+- name: My Second Play
+  hosts: us_east
+  tasks:
+   - name: Ping My Host
+     ansible.builtin.ping:
+     
+   - name: Print Message 
+     ansible.builtin.debug:
+      msg: Hello East
+
+     

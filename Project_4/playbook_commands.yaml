@@ -1,0 +1,22 @@
+- name : "Execute Simple Commands"
+  hosts: server_01
+  tasks:
+   - name : "Execute Date Command"
+     ansible.builtin.command:
+      cmd : date
+   - name : "Execute Pwd Command"
+     ansible.builtin.command:
+      cmd : pwd
+   - name : "Execute Cat commad "
+     ansible.builtin.command:
+      cmd : cat /etc/hosts
+   - name : "Create A Directory "
+     ansible.builtin.command:
+      cmd : mkdir test1
+      creates : test1
+   - name : "Create A Directory "
+     ansible.builtin.command: 
+      cmd: mkdir test3
+     args :
+      chdir : test1/
+      creates : test2
