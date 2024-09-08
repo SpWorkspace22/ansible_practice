@@ -1,0 +1,15 @@
+- name: Playbook demo for apt repo
+  hosts: dev_servers
+  become: true
+  tasks:
+   - name: Added a sample repo
+     ansible.builtin.apt_repository:
+      repo: deb http://archive.canonical.com/ubuntu hardy partner
+      state: present
+      
+   - name: Add specified repository into sources list using specified filename
+     ansible.builtin.apt_repository:
+      repo: deb http://dl.google.com/linux/chrome/deb/ stable main
+      state: present
+      filename: google-chrome
+     

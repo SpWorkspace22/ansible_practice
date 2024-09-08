@@ -1,1 +1,1 @@
-{"virtualbox":{"/vagrant":{"guestpath":"/vagrant","hostpath":"/home/sonu123/MyPlayground/ConfigurationMgmt/Ansible/module_practice","disabled":false,"__vagrantfile":true}}}
+{"virtualbox":{"/vagrant":{"guestpath":"/vagrant","hostpath":"/home/sonu123/MyPlayground/ConfigurationMgmt/ansible_practice/module_practice","disabled":false,"__vagrantfile":true}}}

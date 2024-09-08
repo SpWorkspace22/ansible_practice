@@ -1,0 +1,14 @@
+- name: Playbook demo for command module
+  hosts: dev_servers
+  tasks:
+   - name: Simple Ping Command
+     ansible.builtin.command:
+      cmd: hostname -I
+
+   - name: Simple Cat Command
+     ansible.builtin.command:
+      cmd: cat File.txt
+      
+   - name: List Of Command
+     ansible.builtin.command: touch File2.txt
+     

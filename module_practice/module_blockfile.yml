@@ -1,0 +1,12 @@
+- name: Playbook demo for blockfile module
+  hosts: dev_servers
+  tasks:
+   - name: Insert Some Text
+     ansible.builtin.blockinfile:
+      path: File.txt
+      block: |
+       Match User ansible-agent
+       PasswordAuthentication c
+      marker: "<!-- Sonu1 ANSIBLE MANAGED BLOCK -->"
+     
+    

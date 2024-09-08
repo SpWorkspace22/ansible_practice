@@ -1,0 +1,17 @@
+- name: Playbook demo for assert module
+  hosts: dev_servers
+  vars:
+   - no1: 4
+  tasks:
+   - name: Single COndition Check
+     ansible.builtin.assert:
+      that: "ansible_os_family != 'RedHat'"
+      
+   - name: Returnig Success/Fail Message
+     ansible.builtin.assert:
+      that: 
+       - no1 <=5
+      fail_msg: " no1 is no less than checked value"
+      success_msg: " no1 is less than equal to checked value"
+
+     
