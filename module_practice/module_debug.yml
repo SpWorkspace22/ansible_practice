@@ -1,0 +1,15 @@
+- name: Playbook To Test Debug
+  hosts: dev_servers
+  tasks: 
+   - name: Get uptime
+     ansible.builtin.command:
+      cmd: uptime
+     register: uptime
+     
+   - name: Print Uptime
+     ansible.builtin.debug:
+      var: uptime
+      
+   - name: Print hostname
+     ansible.builtin.debug:
+      var: inventory_hostname

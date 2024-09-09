@@ -1,0 +1,14 @@
+- name: Playbook To Parctice Cron Jobs
+  hosts: dev_servers
+  become: false
+  tasks:
+   - name : Simple Write Text
+     ansible.builtin.cron:
+      name: "Write Text"
+      job: "echo Hello Sonu At $(date) >> File1.txt"
+      minute: "*"
+      hour: "*" 
+      day: "*"
+      weekday: "*"
+      month: "*"
+      state: absent
