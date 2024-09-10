@@ -1,0 +1,13 @@
+- name: Playbook For Find Module
+  hosts: dev_servers
+  tasks:
+   - name: Search Fir File in Tmp 
+     ansible.builtin.find:
+      path: ./
+      age: 0d
+      recurse: true
+      
+   - name: Find .txt Files
+     ansible.builtin.find:
+      paths: ./
+      patterns: '*.txt,'

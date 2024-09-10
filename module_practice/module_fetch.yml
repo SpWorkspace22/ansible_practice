@@ -1,0 +1,7 @@
+- name: Playbook For Fetch Module
+  hosts: dev_servers
+  tasks:
+   - name: Pull FileTest File From Remote Host
+     ansible.builtin.fetch:
+      src: ./FileTest.txt
+      dest: ./

@@ -1,0 +1,21 @@
+- name: Playbook For File Module
+  hosts: dev_servers
+  tasks:
+   - name: Create Simple File
+     ansible.builtin.file:
+      path: ./FileNew.txt
+      state: touch
+      
+   - name: Create Simple File Having root owner & grp
+     become: true
+     ansible.builtin.file:
+      path: ./FileNew1.txt
+      state: touch
+      owner: root
+      group: root
+      
+   - name: Create Directory
+     ansible.builtin.file:
+      path: ./Test/Sonu/
+      state: directory
+      

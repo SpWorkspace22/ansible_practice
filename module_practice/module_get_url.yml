@@ -1,0 +1,9 @@
+- name: Playbook For Get Url
+  hosts: dev_servers
+  tasks:
+   - name: Download Google Data
+     ansible.builtin.get_url:
+      url: https://www.google.co.in
+      dest: ./Gg.txt
+ 
+      
