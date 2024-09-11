@@ -12,7 +12,10 @@ pipeline {
         stage("Run Ansible Step"){
             steps{
             	withCredentials([sshUserPrivateKey(credentialsId: 'Ansible', keyFileVariable: 'Ansible-SSH')]) {
-		     ansibleAdhoc(credentialsId:'Ansible-SSH-key',inventory: 'module_practice/inventory/Devlopment.yml', hosts: 'localhost', module: 'ping')
+            		ansiColor('xterm') {
+			    // some block
+			    ansibleAdhoc(credentialsId:'Ansible-SSH-key',inventory: 'module_practice/inventory/Devlopment.yml', hosts: 'localhost', module: 'ping')
+			}
 		}
 		   
             }
