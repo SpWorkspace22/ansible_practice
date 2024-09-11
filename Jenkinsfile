@@ -12,7 +12,7 @@ pipeline {
         }
         stage("Run Ansible Step"){
             steps{
-                ansibleAdhoc(inventory: 'module_practice/inventory/Devlopment.yml', hosts: 'dev_servers', moduleArguments: 'ping')
+		    ansibleAdhoc(credentialsId: 'Ansible',inventory: 'module_practice/inventory/Devlopment.yml', hosts: 'dev_servers', moduleArguments: 'ping')
             }
         }
     }
