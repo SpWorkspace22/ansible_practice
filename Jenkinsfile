@@ -14,7 +14,7 @@ pipeline {
             	withCredentials([sshUserPrivateKey(credentialsId: 'Ansible', keyFileVariable: 'Ansible-SSH')]) {
             		ansiColor('xterm') {
 			    // some block
-			    ansibleAdhoc(credentialsId:'Ansible-SSH-key',inventory: 'module_practice/inventory/Devlopment.yml', hosts: 'localhost', module: 'ping',Colorized:true)
+			    ansibleAdhoc(credentialsId:'Ansible-SSH-key',inventory: 'module_practice/inventory/Devlopment.yml', hosts: 'localhost', module: 'ping',colorized:true)
 			}
 		}
 		   
